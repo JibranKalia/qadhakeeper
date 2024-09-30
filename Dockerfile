@@ -29,6 +29,9 @@ COPY --from=build /app/build/libs/*SNAPSHOT.jar /app/app.jar
 # Expose the application port
 EXPOSE 8080
 
+HEALTHCHECK --interval=30s --timeout=10s --start-period=10s --retries=3 \
+  CMD wget --no-verbose --tries=1 --spider http://localhost:8080/actuator/health || exit 1
+
 # Set JVM options and run the application
 ENTRYPOINT ["java", \
     "-XshowSettings:vm", \
