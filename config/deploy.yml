@@ -29,16 +29,17 @@ registry:
   password:
     - KAMAL_REGISTRY_PASSWORD
 
+proxy:
+  app_port: 8080
+  healthcheck:
+    path: /actuator/health
+    interval: 2
+
 # Configure builder setup.
 builder:
   arch: amd64
 
 # Configure a custom healthcheck (default is /up on port 3000)
-healthcheck:
-  path: /actuator/health
-  port: 8080
-  max_attempts: 20
-  interval: 30s
 
 # Inject ENV variables into containers (secrets come from .kamal/secrets).
 #
