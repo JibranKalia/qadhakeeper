@@ -16,8 +16,12 @@ servers:
 # Enable SSL auto certification via Let's Encrypt (and allow for multiple apps on one server).
 # Set ssl: false if using something like Cloudflare to terminate SSL (but keep host!).
 proxy:
-  ssl: true
-  host: app.example.com
+  ssl: false
+  host: api.jibrankalia.com
+  app_port: 8080
+  healthcheck:
+    path: /actuator/health
+    interval: 2
 
 # Credentials for your image host.
 registry:
@@ -29,11 +33,6 @@ registry:
   password:
     - KAMAL_REGISTRY_PASSWORD
 
-proxy:
-  app_port: 8080
-  healthcheck:
-    path: /actuator/health
-    interval: 2
 
 # Configure builder setup.
 builder:
