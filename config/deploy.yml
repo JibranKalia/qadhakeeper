@@ -2,7 +2,7 @@
 service: qadha-keeper
 
 # Name of the container image.
-image: jibrankalia/qadha-keeper
+image: jibrankalia/qadhakeeper
 
 # Deploy to these servers.
 servers:
