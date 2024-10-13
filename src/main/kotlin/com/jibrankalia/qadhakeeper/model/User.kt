@@ -33,3 +33,12 @@ data class User (
   @Column(nullable = false)
   val updatedAt : LocalDateTime? = null,
 )
+// : UserDetails {
+//   override fun getAuthorities(): Collection<GrantedAuthority> = emptyList()
+//   override fun getPassword(): String = password
+//   override fun getUsername(): String = email
+//   override fun isAccountNonExpired(): Boolean = true
+//   override fun isAccountNonLocked(): Boolean = true
+//   override fun isCredentialsNonExpired(): Boolean = true
+//   override fun isEnabled(): Boolean = true
+// }
