@@ -70,7 +70,7 @@ builder:
 # Inject ENV variables into containers (secrets come from .kamal/secrets).
 env:
   clear:
-    POSTGRES_HOST: 192.168.0.2
+    POSTGRES_HOST: 5.161.234.25
     POSTGRES_PORT: 5432
     POSTGRES_DATABASE: qadhakeeper_production
     POSTGRES_USER: qadhakeeper
@@ -79,15 +79,17 @@ env:
 
 accessories:
   db:
-    image: postgres:15
-    host: 192.168.0.2
+    host: 5.161.234.25
     port: 5432
+    image: postgres:16.4
     env:
       clear:
         POSTGRES_USER: qadhakeeper
         POSTGRES_DB: qadhakeeper_production
       secret:
         - POSTGRES_PASSWORD
+    files:
+      - db/production.sql:/docker-entrypoint-initdb.d/init.sql
     directories:
       - data:/var/lib/postgresql/data
 
