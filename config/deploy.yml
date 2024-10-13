@@ -69,16 +69,18 @@ builder:
 
 # Inject ENV variables into containers (secrets come from .kamal/secrets).
 env:
-  - POSTGRES_HOST=192.168.0.2
-  - POSTGRES_PORT=5432
-  - POSTGRES_DATABASE=qadhakeeper_production
-  - POSTGRES_USER=qadhakeeper
-  - POSTGRES_PASSWORD:
-      from_secret: POSTGRES_PASSWORD
+  clear:
+    POSTGRES_HOST: 192.168.0.2
+    POSTGRES_PORT: 5432
+    POSTGRES_DATABASE: qadhakeeper_production
+    POSTGRES_USER: qadhakeeper
+  secret:
+    - POSTGRES_PASSWORD
 
 accessories:
   db:
     image: postgres:15
+    host: 192.168.0.2
     port: 5432
     env:
       clear:
