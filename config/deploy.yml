@@ -88,8 +88,6 @@ accessories:
         POSTGRES_DB: qadhakeeper_production
       secret:
         - POSTGRES_PASSWORD
-    files:
-      - db/production.sql:/docker-entrypoint-initdb.d/init.sql
     directories:
       - data:/var/lib/postgresql/data
 
