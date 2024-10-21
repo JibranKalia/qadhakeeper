@@ -9,7 +9,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener
 @Entity
 @Table(name = "users")
 @EntityListeners(AuditingEntityListener::class)
-data class User(
+class User(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY) val id: Long? = null,
     @Column(nullable = false, unique = true) val username: String,
     @Column(nullable = false) val password: String,
